@@ -1,0 +1,76 @@
+/*
+头部导航样式
+*/
+.page-header {
+    height: 0.5rem;
+}
+
+.page-header .wrap {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    color: #333333;
+    height: 0.5rem;
+    line-height: 0.49rem;
+    z-index: 100;
+    border-bottom: .01rem solid #e4e4e4;
+}
+
+.page-header .wrap > h3 {
+    text-align: center;
+    font-size: 0.16rem;
+}
+
+.page-header .nav-left, .page-header .nav-right {
+    position: absolute;
+    top: 0;
+}
+
+.page-header .nav-left {
+    left: 0;
+    padding-left: 0.15rem;
+}
+
+.page-header .nav-right {
+    right: 0;
+    padding-right: 0.15rem;
+}
+
+.page-header .nav-left .back {
+    display: block;
+    height: .5rem;
+    color: #666666;
+}
+
+.hairline .page-header .wrap {
+    border-bottom: .005rem solid #e4e4e4;
+}
+
+.m-header-switch > a {
+    font-size: .12rem;
+    color: #1b7ecc;
+    padding: .05rem .1rem;
+    border-color: #1b7ecc;
+    border-style: solid;
+    border-width: .01rem 0;
+}
+
+.m-header-switch > a:first-child {
+    border-width: .01rem 0 .01rem .01rem;
+    border-top-left-radius: .05rem;
+    border-bottom-left-radius: .05rem;
+}
+
+.m-header-switch > a:last-child {
+    border-width: .01rem .01rem .01rem 0;
+    border-top-right-radius: .05rem;
+    border-bottom-right-radius: .05rem;
+}
+
+.m-header-switch .curr {
+    background: #1b7ecc;
+    color: #FFFFFF;
+}

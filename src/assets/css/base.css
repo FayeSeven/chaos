@@ -1,0 +1,180 @@
+*, *:before, *:after {
+    /* 设置元素的盒模型为border-box */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* chrome不再支持下面的属性。移动端Safari横屏时禁止字体放大 */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* 去除点击元素后的高亮效果 */
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 去除元素周围的虚线 */
+*:focus {
+    outline: none;
+}
+
+html {
+    font-size: 625%; /* 相当于100px，方便计算，浏览器默认字体为16px */
+
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    color: #505050;
+    background: #F4F4F4;
+}
+
+body {
+    position: relative;
+    font: 14px/1.5 微软雅黑, Arial, YaHei, tahoma, 'Hiragino Sans GB', 宋体;
+    /*开发环境先注释掉，上线以后放开
+	-webkit-user-select: none;
+            user-select: none;
+    */
+}
+
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, img {
+    margin: 0;
+    padding: 0;
+}
+
+/**/
+@media all and (max-width: 320px) {
+    body {
+        font-size: 12px;
+    }
+}
+
+ul, ol, dl, dd {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6,
+p {
+    margin: 0;
+    font-weight: normal;
+}
+
+i, em,
+strong {
+    font-style: normal;
+    font-weight: normal;
+}
+
+i {
+    display: inline-block;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    font-family: inherit;
+}
+
+input::-moz-placeholder, input::-ms-input-placeholder, input::-webkit-input-placeholder, textarea::-moz-placeholder, textarea::-ms-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #B2B2B8;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    vertical-align: middle;
+}
+
+input[type="reset"], input[type="submit"], input[type="button"] {
+    -webkit-appearance: button;
+    cursor: pointer
+}
+
+button[disabled], html input[disabled] {
+    cursor: default
+}
+
+input[type="text"], input[type="password"], input[type="tel"], input[type="number"] {
+    -webkit-appearance: none;
+}
+
+::-webkit-input-placeholder {
+    color: #b2b2b8
+}
+
+::-moz-placeholder {
+    color: #b2b2b8
+}
+
+:-ms-input-placeholder {
+    color: #b2b2b8
+}
+
+:-moz-placeholder {
+    color: #b2b2b8
+}
+
+img {
+    border: 0
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+td, th {
+    padding: 0;
+    text-align: left;
+    font-weight: normal;
+}
+
+a {
+    color: #505050;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #FFFFFF;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+
+.hide {
+    display: none !important;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
