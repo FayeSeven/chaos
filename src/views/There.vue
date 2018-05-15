@@ -6,22 +6,62 @@
             <li v-for="(item,index) in list" @click="handleItemClick(index)">{{item}}</li>
             <!--<todo-item v-bind:content="item" v-for="item in list"></todo-item>-->
         </ul>
+        <div :style="styleObj" @click="handleDivClick()">hello</div>
+        <div>
+            <component :is="type"></component>
+            <button @click="handleBtnComponentClick()">change</button>
+        </div>
+        <div>
+            <transition name="fade">
+                <div v-if="show">hello word</div>
+            </transition>
+            <button @click="handleClick()">切换</button>
+        </div>
+        <!--<div>
+            &lt;!&ndash;animate.css&ndash;&gt;
+            <transition name="fade" enter-active-class="animated swing"
+                                       leave-active-class="animated shake">
+                <div v-if="show">hello word</div>
+            </transition>
+            <button @click="handleClick()">切换</button>
+        </div>-->
+        <div>
+            <transition mode="out-in">
+                <div v-if="show" key="hello">hello word</div>
+                <div v-else key="bye">Bye word</div>
+            </transition>
+            <button @click="handleClick()">切换</button>
+        </div>
+        <div>
+            <transition-group>
+                <div v-for="item of list" :key="item.id">{{item.title}}</div>
+            </transition-group>
+            <button @click="handleBtnAddClick">add</button>
+        </div>
         <foot-module></foot-module>
     </div>
 </template>
 
 <script>
     import FootModule from "../components/Footer";
+
     /*var TodoItem ={
         props: ['content'],
         template:" <li>{{content}}</li>"
     }*/
     export default {
+        //push pop shift unshift splice sort reverse
         name: "There",
         data(){
             return {
                 list:[],
-                inputValue:''
+                inputValue:'',
+                styleObj: {
+                    color:"red"
+                },
+                type: 'one',
+                show: true,
+                count: 0
             };
         },
         methods: {
@@ -31,15 +71,68 @@
             },
             handleItemClick(index) {
                 this.list.splice(index,1);
+            },
+            handleDivClick(){
+                this.styleObj.color = this.styleObj.color === "black" ? "red" : "black"
+            },
+            handleBtnComponentClick(){
+                this.type = (this.type === 'one' ? 'two' : 'one');
+            },
+            handleClick(){
+                this.show = this.show === false ? true : false;
+            },
+            handleBtnAddClick(){
+                this.list.push({
+                    id: this.count++,
+                    title:'hello word'
+                })
             }
         },
         components: {
             // TodoItem,
-            FootModule
+            FootModule,
+            one:{
+                template:'<div v-once>one</div>'
+            },
+            two:{
+                template:'<div v-once>two</div>'
+            }
         }
     }
 </script>
 
 <style scoped>
+   /* .fade-enter,.fade-leave-to{
+        opacity: 0;
+    }
+    .fade-enter-active,.fade-leave-active{
+        transition: opacity 3s;
+    }*/
+   @keyframes bounce-in {
+       0%{
+           transform: scale(0);
+       }
+       50%{
+           transform: scale(1.5);
+       }
+       100%{
+           transform: scale(1);
+       }
 
+   }
+   .fade-enter-active{
+       transform-origin: left center;
+       animation: bounce-in 1s;
+   }
+    .fade-leave-active {
+        transform-origin: left center;
+        animation: bounce-in 1s reverse;
+    }
+
+   .v-enter,.v-leave-to{
+        opacity: 0;
+    }
+    .v-enter-active,.v-leave-active{
+        transition: opacity 3s;
+    }
 </style>
