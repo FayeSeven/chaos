@@ -1,6 +1,15 @@
 <template>
     <div class="page-home">
         <head-module>
+            <!--
+            1.to 相当于a标签中的"herf"属性，后面跟跳转链接所用
+            2.replace 在routre-link标签中添加后，页面切换时不会留下历史记录
+            3.tag 具有tag属性的router-link会被渲染成相应的标签
+            4.active-class 这个属性是设置激活链接时class属性，也就是当前页面所有与当前地址所匹配的的链接都会被添加class属性
+            5.exact 开启router-link的严格模式
+            eg:<router-link :to="/home" tag="li" active-class="u-link--Active" replace>Home</router-link>
+            <router-link :to="/" exact>home</router-link>
+            -->
             <template slot="nav-title">股票期权宝</template>
             <div slot="nav-left">
                 <router-link to="/ask">客服</router-link>
