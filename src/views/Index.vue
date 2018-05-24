@@ -10,12 +10,12 @@
             eg:<router-link :to="/home" tag="li" active-class="u-link--Active" replace>Home</router-link>
             <router-link :to="/" exact>home</router-link>
             -->
-            <template slot="nav-title">股票期权宝</template>
+            <template slot="nav-title">杂七杂八</template>
             <div slot="nav-left">
-                <router-link to="/ask">客服</router-link>
+                <router-link to="/left">左边</router-link>
             </div>
             <div slot="nav-right">
-                <router-link to="/guide">新手？</router-link>
+                <router-link to="/right">右边</router-link>
             </div>
         </head-module>
         <swipe class="my-swipe">
