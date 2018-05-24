@@ -1,18 +1,23 @@
 <template>
-    <div>
-        这里
-        <div class="here"></div>
+    <div class="page-here">
+        <div class="mode-here"></div>
+        <foot-module></foot-module>
     </div>
 </template>
 
 <script>
+    import FootModule from "../components/Footer";
+
     export default {
-        name: "Here"
+        name: "Here",
+        components: {
+            FootModule,
+        }
     }
 </script>
 
 <style scoped>
-    .here{
+    .mode-here{
         position: fixed;
         top: 0;
         left: 0;
