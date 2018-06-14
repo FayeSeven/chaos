@@ -1,8 +1,8 @@
 <template>
     <div class="page-here">
         <div class="mode-here"></div>
-        <div>
-            <!--在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。
+        <div class='box'>
+            科技感内发光边框<!--在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。
 
             路由对象暴露了以下属性：
 
@@ -48,5 +48,15 @@
         height: 100%;
         opacity: .3;
         background: linear-gradient(to right, rgb(69, 104, 220), rgb(176, 106, 179));
+    }
+    body{
+        background: black;padding: 10px
+    }
+    .box{
+        height: 3.66rem; width: 100%; color:white; padding: 1rem;
+        box-shadow: 0 0 3rem rgba(100,200,255,.5) inset;
+        border: 30px solid transparent;
+        border-image: linear-gradient(45deg,red,blue) 10%;
+        background: rgba(0,0,0,.3);
     }
 </style>

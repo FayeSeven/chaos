@@ -23,7 +23,7 @@
             <swipe-item class="slide2">Slide2</swipe-item>
             <swipe-item class="slide3">Slide3</swipe-item>
         </swipe>
-        <button v-on:click="warn('Form cannot be submitted yet.', $event)">
+        <button v-on:click="warn('Form cannot be submitted yet.', $event)" class="box">
             Submit
         </button>
         <!-- 阻止单击事件继续传播 -->
@@ -94,5 +94,11 @@
     .slide3 {
         background-color: #ff2d4b;
         color: #fff;
+    }
+    .box{
+        height: 40px;
+        width: 100px;
+        border-radius: 5%;
+        background: linear-gradient(45deg, rgb(31,89,146),rgb(35,175,230),rgb(29,136,203) );
     }
 </style>
