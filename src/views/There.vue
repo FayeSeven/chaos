@@ -38,6 +38,9 @@
             </transition-group>
             <button @click="handleBtnAddClick">add</button>
         </div>
+        <div>
+            高精度时间:{{time.hrTime}}
+        </div>
         <foot-module></foot-module>
     </div>
 </template>
@@ -52,87 +55,100 @@
     export default {
         //push pop shift unshift splice sort reverse
         name: "There",
-        data(){
+        data() {
             return {
-                list:[],
-                inputValue:'',
+                list: [],
+                inputValue: '',
                 styleObj: {
-                    color:"red"
+                    color: "red"
                 },
                 type: 'one',
                 show: true,
-                count: 0
+                count: 0,
+                time: {
+                    hrTime: 0
+                }
             };
         },
+        mounted() {
+            this.highResolutionTime();
+        },
         methods: {
+            highResolutionTime() {
+                const timeStamp = performance.timeOrigin + performance.now();
+                this.time.hrTime = new Date(timeStamp).toLocaleString();
+            },
             handleBtnClick() {
                 this.list.push(this.inputValue);
                 this.inputValue = '';
             },
             handleItemClick(index) {
-                this.list.splice(index,1);
+                this.list.splice(index, 1);
             },
-            handleDivClick(){
+            handleDivClick() {
                 this.styleObj.color = this.styleObj.color === "black" ? "red" : "black"
             },
-            handleBtnComponentClick(){
+            handleBtnComponentClick() {
                 this.type = (this.type === 'one' ? 'two' : 'one');
             },
-            handleClick(){
+            handleClick() {
                 this.show = this.show === false ? true : false;
             },
-            handleBtnAddClick(){
+            handleBtnAddClick() {
                 this.list.push({
                     id: this.count++,
-                    title:'hello word'
+                    title: 'hello word'
                 })
             }
         },
         components: {
             // TodoItem,
             FootModule,
-            one:{
-                template:'<div v-once>one</div>'
+            one: {
+                template: '<div v-once>one</div>'
             },
-            two:{
-                template:'<div v-once>two</div>'
+            two: {
+                template: '<div v-once>two</div>'
             }
         }
     }
 </script>
 
 <style scoped>
-   /* .fade-enter,.fade-leave-to{
-        opacity: 0;
-    }
-    .fade-enter-active,.fade-leave-active{
-        transition: opacity 3s;
-    }*/
-   @keyframes bounce-in {
-       0%{
-           transform: scale(0);
-       }
-       50%{
-           transform: scale(1.5);
-       }
-       100%{
-           transform: scale(1);
-       }
+    /* .fade-enter,.fade-leave-to{
+         opacity: 0;
+     }
+     .fade-enter-active,.fade-leave-active{
+         transition: opacity 3s;
+     }*/
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
+        }
 
-   }
-   .fade-enter-active{
-       transform-origin: left center;
-       animation: bounce-in 1s;
-   }
+    }
+
+    .fade-enter-active {
+        transform-origin: left center;
+        animation: bounce-in 1s;
+    }
+
     .fade-leave-active {
         transform-origin: left center;
         animation: bounce-in 1s reverse;
     }
 
-   .v-enter,.v-leave-to{
+    .v-enter, .v-leave-to {
         opacity: 0;
     }
-    .v-enter-active,.v-leave-active{
+
+    .v-enter-active, .v-leave-active {
         transition: opacity 3s;
     }
 </style>
