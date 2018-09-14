@@ -34,7 +34,8 @@ app.get('/api/conditionFind', (req, res) => {
     const tel = req.query.tel;
     const sqlStr = 'select * from websites where tel=?';
     conn.query(sqlStr, tel, (err, results) => {
-        if (err) return res.json({err_code: 1, message: '数据不存在', affextedRows: 0});
+        if (err) return res.json({err_code: 404, message: '数据不存在', affextedRows: 0});
+        if (results.length === 0) return res.json({err_code: 1, message: '查找不到', affextedRows: 0});
         res.json({err_code: 200, message: results, affextedRows: results.affextedRows});
     })
 });
