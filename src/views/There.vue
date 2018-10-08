@@ -41,6 +41,11 @@
         <div>
             高精度时间:{{time.hrTime}}
         </div>
+        <div>
+            <p>Date兼容：2018-10-08'是无法被各个浏览器中，使用new Date(str)来正确生成日期对象的。 正确的用法是'2018/10/08'.</p>
+            <p>Date.parse("2018-10-08 11:11:11") : {{date.hrDate}}</p>
+            <p>Date.parse("2018/10/08 11:11:11") : {{date.tiltDate}}</p>
+        </div>
         <foot-module></foot-module>
     </div>
 </template>
@@ -67,6 +72,10 @@
                 count: 0,
                 time: {
                     hrTime: 0
+                },
+                date: {
+                    hrDate: 0,
+                    tiltDate: 0
                 }
             };
         },
@@ -77,6 +86,8 @@
             highResolutionTime() {
                 const timeStamp = performance.timeOrigin + performance.now();
                 this.time.hrTime = new Date(timeStamp).toLocaleString();
+                this.date.hrDate = Date.parse("2018-10-08 11:11:11");
+                this.date.tiltDate = Date.parse("2018/10/08 11:11:11");
             },
             handleBtnClick() {
                 this.list.push(this.inputValue);
