@@ -1,51 +1,68 @@
 <template>
     <div class="page-there">
-        <input type="text" v-model="inputValue">
-        <button @click="handleBtnClick()">提交</button>
-        <ul>
-            <li v-for="(item,index) in list" @click="handleItemClick(index)">{{item}}</li>
-            <!--<todo-item v-bind:content="item" v-for="item in list"></todo-item>-->
-        </ul>
-        <div :style="styleObj" @click="handleDivClick()">hello</div>
-        <div>
-            <component :is="type"></component>
-            <button @click="handleBtnComponentClick()">change</button>
-        </div>
-        <div>
-            <transition name="fade">
-                <div v-if="show">hello word</div>
-            </transition>
-            <button @click="handleClick()">切换</button>
-        </div>
-        <!--<div>
-            &lt;!&ndash;animate.css&ndash;&gt;
-            <transition name="fade" enter-active-class="animated swing"
-                                       leave-active-class="animated shake">
-                <div v-if="show">hello word</div>
-            </transition>
-            <button @click="handleClick()">切换</button>
-        </div>-->
-        <div>
-            <transition mode="out-in">
-                <div v-if="show" key="hello">hello word</div>
-                <div v-else key="bye">Bye word</div>
-            </transition>
-            <button @click="handleClick()">切换</button>
-        </div>
-        <div>
-            <transition-group>
-                <div v-for="item of list" :key="item.id">{{item.title}}</div>
-            </transition-group>
-            <button @click="handleBtnAddClick">add</button>
-        </div>
-        <div>
-            高精度时间:{{time.hrTime}}
-        </div>
-        <div>
-            <p>Date兼容：2018-10-08'是无法被各个浏览器中，使用new Date(str)来正确生成日期对象的。 正确的用法是'2018/10/08'.</p>
-            <p>Date.parse("2018-10-08 11:11:11") : {{date.hrDate}}</p>
-            <p>Date.parse("2018/10/08 11:11:11") : {{date.tiltDate}}</p>
-        </div>
+        <main>
+            <section>
+                <input type="text" v-model="inputValue">
+                <button @click="handleBtnClick()">提交</button>
+                <ul>
+                    <li v-for="(item,index) in list" @click="handleItemClick(index)">{{item}}</li>
+                    <!--<todo-item v-bind:content="item" v-for="item in list"></todo-item>-->
+                </ul>
+                <div :style="styleObj" @click="handleDivClick()">hello</div>
+                <div>
+                    <component :is="type"></component>
+                    <button @click="handleBtnComponentClick()">change</button>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <transition name="fade">
+                        <div v-if="show">hello word</div>
+                    </transition>
+                    <button @click="handleClick()">切换</button>
+                </div>
+                <!--<div>
+                    &lt;!&ndash;animate.css&ndash;&gt;
+                    <transition name="fade" enter-active-class="animated swing"
+                                               leave-active-class="animated shake">
+                        <div v-if="show">hello word</div>
+                    </transition>
+                    <button @click="handleClick()">切换</button>
+                </div>-->
+                <div>
+                    <transition mode="out-in">
+                        <div v-if="show" key="hello">hello word</div>
+                        <div v-else key="bye">Bye word</div>
+                    </transition>
+                    <button @click="handleClick()">切换</button>
+                </div>
+                <div>
+                    <transition-group>
+                        <div v-for="item of list" :key="item.id">{{item.title}}</div>
+                    </transition-group>
+                    <button @click="handleBtnAddClick">add</button>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    高精度时间:{{time.hrTime}}
+                </div>
+                <div>
+                    <p>Date兼容：2018-10-08'是无法被各个浏览器中，使用new Date(str)来正确生成日期对象的。 正确的用法是'2018/10/08'.</p>
+                    <p>Date.parse("2018-10-08 11:11:11") : {{date.hrDate}}</p>
+                    <p>Date.parse("2018/10/08 11:11:11") : {{date.tiltDate}}</p>
+                </div>
+            </section>
+
+            <section class="m-email">
+                <h3> :valid :invalid选择器实例演示。</h3>
+                <input type="email" value="support@exampel.com"/>
+                <p>请输入非法 e-mail 地址，查看样式变化。</p>
+            </section>
+        </main>
+
         <foot-module></foot-module>
     </div>
 </template>
@@ -126,6 +143,9 @@
 </script>
 
 <style scoped>
+    section{
+        margin-bottom: .2rem;
+    }
     /* .fade-enter,.fade-leave-to{
          opacity: 0;
      }
@@ -161,5 +181,13 @@
 
     .v-enter-active, .v-leave-active {
         transition: opacity 3s;
+    }
+
+    .m-email > input[type=email]:valid {
+        background-color: yellow;
+    }
+
+    .m-email > input[type=email]:invalid {
+        background-color: red;
     }
 </style>

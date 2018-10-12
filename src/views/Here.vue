@@ -1,13 +1,15 @@
 <template>
     <div class="page-here">
-        <div class="mode-here"></div>
-        <div>
-            <div class="wave"></div>
-            <div class="wavy-line"></div>
-            <div class="wavy-star"></div>
-        </div>
-        <div class='box'>
-            科技感内发光边框<!--在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。
+        <main>
+            <section>
+                <div class="mode-here"></div>
+                <div>
+                    <div class="wave"></div>
+                    <div class="wavy-line"></div>
+                    <div class="wavy-star"></div>
+                </div>
+                <div class='box'>
+                    科技感内发光边框<!--在使用了 vue-router 的应用中，路由对象会被注入每个组件中，赋值为 this.$route ，并且当路由切换时，路由对象会被更新。
 
             路由对象暴露了以下属性：
 
@@ -23,12 +25,15 @@
             数组，包含当前匹配的路径中所包含的所有片段所对应的配置参数对象。
             $route.name
             当前路径的名字，如果没有使用具名路径，则名字为空。-->
-            <p>当前路径：{{$route.path}}</p>
-            <p>当前参数：{{$route.params}}</p>
-            <p>路由名称：{{$route.name}}</p>
-            <p>路由查询参数：{{$route.query}}</p>
-            <!--<p>路由匹配项：{{$route.matched | json}}</p>-->
-        </div>
+                    <p>当前路径：{{$route.path}}</p>
+                    <p>当前参数：{{$route.params}}</p>
+                    <p>路由名称：{{$route.name}}</p>
+                    <p>路由查询参数：{{$route.query}}</p>
+                    <!--<p>路由匹配项：{{$route.matched | json}}</p>-->
+                </div>
+            </section>
+        </main>
+
         <foot-module></foot-module>
     </div>
 </template>
